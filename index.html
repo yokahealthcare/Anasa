@@ -1,17 +1,79 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<h5>SAMPOERNA UNIVERSITY RESEARCH</h5>
-	<h1>BREATHING WAVE PATTERN</h1>
-	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+    	<h5>SAMPOERNA UNIVERSITY</h5>
+    	<h1>BREATHING WAVE</h1>
+    	<br><br>
+
+    	<h3>1. DATASET</h3>
+    	<br>
+    	<div class="ml-4">
+    		<h5>1.1 How much the Data?</h5>
+    		<p>The dataset that will be used in this study contains 26400 data and with 86 points in the breathing wave. This data has been cleaned and filtered and is ready to be used for prediction data.</p>
+
+    		<br>
+
+    		<h5>1.2 Training and Testing Ratio</h5>
+    		<p>In predicting the data that will be used will be divided into 80% training and 20% testing for Hold-out and Stratified K-fold (5 fold) Cross Validation, but we will use 90% training and 10% for GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
+
+
+    		<br>
+
+    		<h5>1.3 Standardization Method</h5>
+    		<p>The data we get will be separated into 2, namely, data used for processing (X) and data labels (Y).</p>
+
+    		<div class="ml-4">
+    			<h5>1.3.1 StandarScaler()</h5>
+    			<p>Data X will be standardized before processing, this needs to be done to get the best results. Standardizing the data will use the <code>StandardScaler</code> function from the <code> sklearn.preprocessing</code> library.</p>
+    			<br>
+    			<b>Formula of StandarScaler()</b><br><br>
+    			<p>
+    				<mark><code>z = (x - u) / s</code></mark><br><br>
+
+    				where x is the original feature value, u is the mean of the feature values, s is the standard deviation of the feature values, and z is the transformed feature value.
+    			</p>
+
+
+    			<br>
+    			<h5>1.3.2 LabelEncoder() and Hot Encoding</h5>
+    			<p>Label data (Y) will be processed into binary data that can be understood by Deep Learning. This process will use two steps, first we will process it into a categorical number with
+  				<code>LabelEncoder()</code> function, then we will convert the categorical number into binary form by using the <code>to_categorical()</code> function from the <code>keras.utils</code> library.</p>
+    		</div>
+
+    		<br>
+
+    		<h5>1.4 Data Reshaping</h5>
+    		<p>To be able to use the Deep Learning RNN LSTM the input of the data must be in the form of a 3 Dimensional Numpy Array, which includes the structure (batch_size, timesteps, units). Therefore we have to reshape the data using the <code>reshape()</code> command from the Numpy library.
+    		<br><br>
+			The data will be of the form <code>(26400, 17, 5)</code></p>
+
+
+    	</div>
+
+    	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
 
 
 
-</body>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
