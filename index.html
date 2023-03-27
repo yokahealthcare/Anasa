@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Anasa - Breathing Wave</title>
   </head>
   <body>
     <div class="container mt-5">
@@ -25,10 +25,13 @@
     		<br>
 
     		<h5>1.2 Training and Testing Ratio</h5>
-    		<p>In predicting the data that will be used will be divided into 80% training and 20% testing for Hold-out and Stratified K-fold (5 fold) Cross Validation, but we will use 90% training and 10% for GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
-
-
-    		<br>
+    		<p>In predicting the data that will be used will be divided into 80% training and 20% testing for Hold-out and Stratified K-fold (5 fold) Cross Validation using function <code>train_test_split()</code> from <code>sklearn.model_selection</code> library, but we will use 90% training and 10% for GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
+        
+        <br>
+        
+        <b>NOTE :</b> the seed of this data <code>train_test_split()</code> and all code is set to <mark>21</mark>. This for reproducibility purposes.
+    		
+        <br>
 
     		<h5>1.3 Standardization Method</h5>
     		<p>The data we get will be separated into 2, namely, data used for processing (X) and data labels (Y).</p>
@@ -56,9 +59,90 @@
     		<h5>1.4 Data Reshaping</h5>
     		<p>To be able to use the Deep Learning RNN LSTM the input of the data must be in the form of a 3 Dimensional Numpy Array, which includes the structure (batch_size, timesteps, units). Therefore we have to reshape the data using the <code>reshape()</code> command from the Numpy library.
     		<br><br>
-			The data will be of the form <code>(26400, 17, 5)</code></p>
+
+        The data will be of the form <code>(26400, 17, 5)</code></p>
+
+        <br>
+        <b>EXPLANATION:</b>
+        <br>        
+        Data below is the first row of the dataset with the shape (1, 85)
+        <br><br>
 
 
+        <code>
+          [ 1.59779273,  1.52042951,  1.42534948,  1.24544463,  0.97877093,
+            0.64113256,  0.22212201, -0.26988872, -0.80815449, -1.33978869,
+           -1.83328397, -2.28952432, -2.6368176 , -2.81494064, -2.84844821,
+           -2.76760377, -2.58571783, -2.31963872, -2.00038434, -1.66147628,
+           -1.36562416, -1.19476024, -1.17729135, -1.2977569 , -1.52384404,
+           -1.82082466, -2.17874772, -2.60014402, -3.07134787, -3.56333075,
+           -4.00879838, -4.35764911, -4.6172318 , -4.76702151, -4.8221929 ,
+           -4.7965052 , -4.64384597, -4.36031584, -3.95276955, -3.43276658,
+           -2.85942697, -2.2775082 , -1.72868417, -1.29251782, -1.00809696,
+           -0.84599296, -0.74764585, -0.66382353, -0.58121718, -0.51507262,
+           -0.50170575, -0.57526212, -0.7172985 , -0.87620914, -1.03846942,
+           -1.2122023 , -1.37951765, -1.49585828, -1.52929515, -1.50696986,
+           -1.47654706, -1.45083177, -1.4234364 , -1.34050265, -1.12435284,
+           -0.76662794, -0.34519415,  0.02776088,  0.29501456,  0.46066572,
+            0.55683282,  0.63033067,  0.70647094,  0.79521174,  0.91788837,
+            1.08483011,  1.27551698,  1.47467796,  1.69926597,  1.94374306,
+            2.16209239,  2.30181472,  2.32587882,  2.24578422,  2.1036879 ]        
+
+        </code>
+
+        <br><br>     
+        Then, we are transforming the data into the shape of (1, 17, 5)
+        <br><br>
+
+        <pre><code>
+          [[ 1.59779273,  1.52042951,  1.42534948,  1.24544463,  0.97877093],
+           [ 0.64113256,  0.22212201, -0.26988872, -0.80815449, -1.33978869],
+           [-1.83328397, -2.28952432, -2.6368176 , -2.81494064, -2.84844821],
+           [-2.76760377, -2.58571783, -2.31963872, -2.00038434, -1.66147628],
+           [-1.36562416, -1.19476024, -1.17729135, -1.2977569 , -1.52384404],
+           [-1.82082466, -2.17874772, -2.60014402, -3.07134787, -3.56333075],
+           [-4.00879838, -4.35764911, -4.6172318 , -4.76702151, -4.8221929 ],
+           [-4.7965052 , -4.64384597, -4.36031584, -3.95276955, -3.43276658],
+           [-2.85942697, -2.2775082 , -1.72868417, -1.29251782, -1.00809696],
+           [-0.84599296, -0.74764585, -0.66382353, -0.58121718, -0.51507262],
+           [-0.50170575, -0.57526212, -0.7172985 , -0.87620914, -1.03846942],
+           [-1.2122023 , -1.37951765, -1.49585828, -1.52929515, -1.50696986],
+           [-1.47654706, -1.45083177, -1.4234364 , -1.34050265, -1.12435284],
+           [-0.76662794, -0.34519415,  0.02776088,  0.29501456,  0.46066572],
+           [ 0.55683282,  0.63033067,  0.70647094,  0.79521174,  0.91788837],
+           [ 1.08483011,  1.27551698,  1.47467796,  1.69926597,  1.94374306],
+           [ 2.16209239,  2.30181472,  2.32587882,  2.24578422,  2.1036879 ]]
+
+        </code></pre>
+
+
+        <br><br>     
+        We are going to make the other rows, like this also. So, the final shape is (26400, 17, 5).
+        After
+        <br><br><br><br>
+
+        <h3>2. RNN (Recurrent Neural Network)</h3>
+        <p>In building machine learning models we will use Deep Learning with Tensorflow and Keras. In particular, we will use the RNN type.</p>
+        <br>
+        <div class="ml-4">
+          <h5>2.1 What is Deep Learning?</h5>
+          <p>Deep learning is a subfield of machine learning that uses artificial neural networks to model and solve complex problems. It involves training artificial neural networks on large amounts of data, allowing them to learn patterns and make predictions or classifications without being explicitly programmed for each task. The term <b>"deep"</b> refers to the number of layers in the neural network, which allows for the extraction of increasingly abstract features from the input data. Deep learning has led to breakthroughs in areas such as computer vision, natural language processing, and speech recognition.</p>
+
+          <br>
+          <h5>2.2 What is RNN (Recurrent Neural Network)?</h5>
+          <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
+
+          <br>
+          <img class="img-fluid" src="https://res.cloudinary.com/dyd911kmh/image/upload/v1647442110/image2_ysmali.png">
+          <br><br><br>
+
+          <p>This is the traditional RNN Process, and this is not used often because of the <b>VANISHING & EXPLODING GRADIENT PROBLEM</b>, which say if the NUMBER of UNROLL is so many it will creating extreme multiplication for the gradient value, and it will resulting vanished / exploded the model. </p>
+
+          <h5>2.3 What is RNN (Recurrent Neural Network)?</h5>
+          <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
+
+
+        </div>
     	</div>
 
     	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
