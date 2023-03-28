@@ -25,7 +25,7 @@
     		<br>
 
     		<h5>1.2 Training and Testing Ratio</h5>
-    		<p>In predicting the data that will be used will be divided into 80% training and 20% testing for Hold-out and Stratified K-fold (5 fold) Cross Validation using function <code>train_test_split()</code> from <code>sklearn.model_selection</code> library, but we will use 90% training and 10% for GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
+    		<p>In predicting the data that will be used will be divided into <b>80% training and 20% testing</b> for Hold-out and Stratified K-fold (5 fold) Cross Validation using function <code>train_test_split()</code> from <code>sklearn.model_selection</code> library, but we will use <b>90% training and 10% testing</b> in GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
         
         <br>
         
@@ -120,30 +120,451 @@
         We are going to make the other rows, like this also. So, the final shape is (26400, 17, 5).
         After
         <br><br><br><br>
+      </div>
 
-        <h3>2. RNN (Recurrent Neural Network)</h3>
-        <p>In building machine learning models we will use Deep Learning with Tensorflow and Keras. In particular, we will use the RNN type.</p>
+      <h3>2. RNN (Recurrent Neural Network)</h3>
+      <p>In building machine learning models we will use Deep Learning with Tensorflow and Keras. In particular, we will use the RNN type.</p>
+      <br>
+      <div class="ml-4">
+        <h5>2.1 What is Deep Learning?</h5>
+        <p>Deep learning is a subfield of machine learning that uses artificial neural networks to model and solve complex problems. It involves training artificial neural networks on large amounts of data, allowing them to learn patterns and make predictions or classifications without being explicitly programmed for each task. The term <b>"deep"</b> refers to the number of layers in the neural network, which allows for the extraction of increasingly abstract features from the input data. Deep learning has led to breakthroughs in areas such as computer vision, natural language processing, and speech recognition.</p>
+
         <br>
-        <div class="ml-4">
-          <h5>2.1 What is Deep Learning?</h5>
-          <p>Deep learning is a subfield of machine learning that uses artificial neural networks to model and solve complex problems. It involves training artificial neural networks on large amounts of data, allowing them to learn patterns and make predictions or classifications without being explicitly programmed for each task. The term <b>"deep"</b> refers to the number of layers in the neural network, which allows for the extraction of increasingly abstract features from the input data. Deep learning has led to breakthroughs in areas such as computer vision, natural language processing, and speech recognition.</p>
+        <h5>2.2 What is RNN (Recurrent Neural Network)?</h5>
+        <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
 
-          <br>
-          <h5>2.2 What is RNN (Recurrent Neural Network)?</h5>
-          <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
+        <br>
+        <img class="img-fluid" src="https://res.cloudinary.com/dyd911kmh/image/upload/v1647442110/image2_ysmali.png">
+        <br><br><br>
 
-          <br>
-          <img class="img-fluid" src="https://res.cloudinary.com/dyd911kmh/image/upload/v1647442110/image2_ysmali.png">
-          <br><br><br>
+        <p>This is the traditional RNN Process, and this is not used often because of the <b>VANISHING & EXPLODING GRADIENT PROBLEM</b>, which say if the NUMBER of UNROLL is so many it will creating extreme multiplication for the gradient value, and it will resulting vanished / exploded the model. </p>
 
-          <p>This is the traditional RNN Process, and this is not used often because of the <b>VANISHING & EXPLODING GRADIENT PROBLEM</b>, which say if the NUMBER of UNROLL is so many it will creating extreme multiplication for the gradient value, and it will resulting vanished / exploded the model. </p>
+        <b>SOLUTION</b>
+        <ul>
+          <li><b>Exploding Gradient</b></li>
+            <ol>
+              <li>
+                <b>Truncated Backpropagation</b><br>
+                Stopping updating the weight across all NN, only certain amount NN will be updated this will creating not optimal model.
+              </li>
+              <li>
+                <b>Penalties</b><br>
+                Gradient being penalized / artificial reduced
+              </li>
+              <li>
+                <b>Gradient Clipping</b><br>
+                Limit the Gradient
+              </li>
+            </ol>
 
-          <h5>2.3 What is RNN (Recurrent Neural Network)?</h5>
-          <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
+            <li><b>Vanishing Gradient</b></li>
+            <ol>
+              <li>
+                <b>Weight Initialization</b><br>
+                How smart you initialize the value of weight
+              </li>
+              <li><b>Echo State Networks</b></li>
+              <li><b>Long Short-Term Memory Network (LSTMs)</b></li>
+            </ol>
+        </ul>
 
 
-        </div>
-    	</div>
+        <br>
+
+        <h5>2.4 What is LSTM (Long Short-Term Memory) in RNN?</h5>
+        <p>LSTM stands for Long Short-Term Memory, which is a type of recurrent neural network (RNN) architecture that is particularly effective at processing sequences of data.</p>
+        <br>
+        <img class="img-fluid" src="LSTM.png">
+        <br>
+        <p>LSTM networks use a memory cell to keep track of information over time, allowing them to selectively "forget" or "remember" information based on the context of the input sequence. This is accomplished through the use of specialized gates that control the flow of information into and out of the memory cell.<br><br>
+
+        The ability of LSTM networks to handle long-term dependencies and avoid the vanishing gradient problem associated with traditional RNNs has made them particularly useful in applications such as natural language processing, speech recognition, and time-series prediction.</p>
+
+      </div>
+
+      <br><br><br><br>
+
+      <h3>3. RESULT OF PREDICTION</h3>
+      <p>Below are the results of all the training and testing of the various methods used.</p>
+      <br>
+      <div class="ml-4">
+        <h5>HOLD-OUT Cross Validation</h5>
+        <p>The hold-out method involves randomly splitting the dataset into two parts, typically in a 70/30 or 80/20 split, with the larger portion allocated to the training set and the smaller portion allocated to the validation set.</p>
+        <pre>
+          LAYER       : 2-LAYERS  
+          RATIO       : 80% training 20% testing
+          SCALE       : StandardScaler
+          SEED        : 21
+          EPOCH       : 15
+          BATCH SIZE  : 32
+          UNIT        : 60 neurons
+          DROPOUT     : 20%
+        </pre>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Optimizer</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Adam</td>
+              <td>7.94</td>
+              <td>97.63</td>
+              <td>7.24</td>
+              <td>97.99</td>
+            </tr>
+            <tr>
+              <td>RMSProp</td>
+              <td>10.16</td>
+              <td>97.03</td>
+              <td>8.63</td>
+              <td>97.52</td>
+            </tr>
+            <tr>
+              <td>SGD</td>
+              <td>65.87</td>
+              <td>77.35</td>
+              <td>66.51</td>
+              <td>76.76</td>
+            </tr>
+            <tr>
+              <td>Adadelta</td>
+              <td>93.72</td>
+              <td>74.75</td>
+              <td>92.32</td>
+              <td>74.73</td>
+            </tr>
+            <tr>
+              <td>Adagrad</td>
+              <td>71.57</td>
+              <td>76.9</td>
+              <td>71.93</td>
+              <td>76.74</td>
+            </tr>
+
+          </tbody>
+        </table>  
+
+        <br><br>
+
+        <pre>
+          LAYER       : 3-LAYERS  
+          RATIO       : 80% training 20% testing
+          SCALE       : StandardScaler
+          SEED        : 21
+          EPOCH       : 15
+          BATCH SIZE  : 32
+          UNIT        : 60 neurons
+          DROPOUT     : 20%
+        </pre>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Optimizer</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-success">
+              <td>Adam</td>
+              <td>6.93</td>
+              <td>97.94</td>
+              <td>6.29</td>
+              <td>98.11</td>
+            </tr>
+            <tr>
+              <td>RMSProp</td>
+              <td>8.25</td>
+              <td>97.57</td>
+              <td>8.22</td>
+              <td>97.84</td>
+            </tr>
+            <tr>
+              <td>SGD</td>
+              <td>66.63</td>
+              <td>77.2</td>
+              <td>67.06</td>
+              <td>76.95</td>
+            </tr>
+            <tr>
+              <td>Adadelta</td>
+              <td>89.83</td>
+              <td>74.75</td>
+              <td>89.27</td>
+              <td>74.73</td>
+            </tr>
+            <tr>
+              <td>Adagrad</td>
+              <td>72.12</td>
+              <td>76.67</td>
+              <td>72.47</td>
+              <td>76.55</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br><br><br>
+        <p></p>
+
+        <br><br><br>
+        <p>In this case we also try to do <b>DATA AUGMENTATION</b> by increasing the data up or down by 0.01. Here we will use the "Adam" optimizer and use 3 layers, because this parameter produces the best results. This is the result obtained,</p>
+
+        <b>UP</b>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Epochs</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>7</td>
+              <td>8.21</td>
+              <td>97.64</td>
+              <td>6.91</td>
+              <td>98.17</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>4.50</td>
+              <td>98.74</td>
+              <td>3.01</td>
+              <td>99.05</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br><br>
+        <b>UP & DOWN</b>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Epochs</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5</td>
+              <td>7.69</td>
+              <td>97.85</td>
+              <td>5.37</td>
+              <td>98.40</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>4.21</td>
+              <td>98.85</td>
+              <td>2.82</td>
+              <td>99.20</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>2.17</td>
+              <td>99.34</td>
+              <td>1.22</td>
+              <td>99.58</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p>The results of the validation accuracy are almost the same as before. However, training can be faster than before, the number of epochs can be reduced and training is completed more quickly.</p>
+
+        <br><br><br>
+
+        <h5>Stratified K-FOLD Cross Validation</h5>
+        <p>In stratified k-fold cross-validation, the dataset is divided into k subsets, with each subset having approximately the same proportion of target classes as the original dataset. <br><br> <b>By using stratified k-fold cross-validation, we can get a more accurate estimate of the model's performance, as it ensures that the model is evaluated on a diverse set of examples, rather than being biased towards one class.</b></p>
+        
+        <br><br>
+        <b>5-FOLD</b>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Fold</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>8.34</td>
+              <td>97.41</td>
+              <td>8.23</td>
+              <td>97.67</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>8.34</td>
+              <td>97.42</td>
+              <td>7.49</td>
+              <td>97.63</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>7.98</td>
+              <td>97.54</td>
+              <td>8.91</td>
+              <td>97.5</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>9.2</td>
+              <td>97.28</td>
+              <td>8.84</td>
+              <td>97.46</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>7.88</td>
+              <td>97.72</td>
+              <td>10.14</td>
+              <td>97.22</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+        <pre>
+          Mean Validation Loss                    : 8.72%  
+          Mean Validation Accuracy                : 97.50%  
+          STD Validation val. Loss                : 0.87%  
+          STD Validation val. Accuracy            : 0.16%  
+        </pre>
+
+
+        <br><br>
+        <b>10-FOLD</b>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Fold</th>
+              <th>Loss</th>
+              <th>Acc</th>
+              <th>Val. Loss</th>
+              <th>Val. Acc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>6</td>
+              <td>7.57</td>
+              <td>97.73</td>
+              <td>5.93</td>
+              <td>98.45</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>7.4</td>
+              <td>97.8</td>
+              <td>5.33</td>
+              <td>98.45</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>7.83</td>
+              <td>97.65</td>
+              <td>5.64</td>
+              <td>98.41</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>6.6</td>
+              <td>98.16</td>
+              <td>5.98</td>
+              <td>98.22</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>8.63</td>
+              <td>97.42</td>
+              <td>6.39</td>
+              <td>98.03</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>7.33</td>
+              <td>97.87</td>
+              <td>5.9</td>
+              <td>97.99</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>7.44</td>
+              <td>97.77</td>
+              <td>7.24</td>
+              <td>97.92</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>7.5</td>
+              <td>97.88</td>
+              <td>7.65</td>
+              <td>97.92</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>7.73</td>
+              <td>97.64</td>
+              <td>7.79</td>
+              <td>97.61</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>8.39</td>
+              <td>97.45</td>
+              <td>8.39</td>
+              <td>97.42</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+
+        <br>
+        <pre>
+          Mean Validation Loss                    : 6.62%  
+          Mean Validation Accuracy                : 98.04%  
+          STD Validation val. Loss                : 1.00%  
+          STD Validation val. Accuracy            : 0.33%  
+        </pre>
+
+        <p>From the results above it can be concluded that 10-FOLD is better than 5-FOLD, the results given have lower validation loss and higher validation accuracy.</p>
+
+        <p>According to Andrej Karpathy, the data has the possibility of overfitting, that is, if the training loss is greater than the validation loss, and if it is underfitting, that is, if the training loss and validation loss are about equal. <b>From the results above, neither of these conditions was found and it can be concluded that the above training process does not have overfitting and underfitting.</b></p>
+
+      </div>
 
     	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
