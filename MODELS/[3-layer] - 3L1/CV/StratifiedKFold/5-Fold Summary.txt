@@ -1,0 +1,22 @@
+[Lowest] Validation Loss			: 7.49%
+[Highest] Validation Loss			: 10.14%
+Mean Validation Loss				: 8.72%
+Standard Deviation of Validation Loss	: 0.87%
+
+[Lowest] Validation Accuracy			: 97.22%
+[Highest] Validation Accuracy			: 97.67%
+Mean Validation Accuracy			: 97.50%
+Standard Deviation of Validation Accuracy	: 0.16%
+
+-----------------------------------
+RESULT OF PREDICTIONS - K-FOLD
+-----------------------------------
++------+------+----------+----------+--------------+
+| Fold | loss | accuracy | val_loss | val_accuracy |
++------+------+----------+----------+--------------+
+|  2   | 8.34 |  97.41   |   8.23   |    97.67     |
+|  3   | 8.34 |  97.42   |   7.49   |    97.63     |
+|  5   | 7.98 |  97.54   |   8.91   |     97.5     |
+|  4   | 9.2  |  97.28   |   8.84   |    97.46     |
+|  1   | 7.88 |  97.72   |  10.14   |    97.22     |
++------+------+----------+----------+--------------+

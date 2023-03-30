@@ -1,0 +1,85 @@
+HYPERPARAMETERS
+	'epochs': [15, 20],
+    	'batch_size': [128],
+    	'model__dropout_rate': [0.2, 0.3],
+    	'model__init_mode': ['glorot_uniform', 'he_uniform'],
+    	'model__init_recurrent': ['glorot_uniform', 'orthogonal'],
+    	'model__init_units': [17, 30, 60]
+
+
+Best: 0.700644 using {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.686553 (0.354009) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.668939 (0.351160) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.679280 (0.330112) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.690985 (0.349468) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.685795 (0.332958) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.670947 (0.328505) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.677614 (0.354377) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.685530 (0.346774) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.678939 (0.343658) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.693523 (0.359986) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.664811 (0.358955) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.680720 (0.327233) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.677992 (0.351638) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.664924 (0.348650) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.683106 (0.329879) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.682576 (0.350185) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.696894 (0.342506) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.676970 (0.337313) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.683258 (0.362925) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.679697 (0.356705) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.685303 (0.345718) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.700644 (0.351740) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.695076 (0.352540) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.693220 (0.351829) with: {'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.674015 (0.344271) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.666970 (0.339920) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.672197 (0.327200) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.667045 (0.341722) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.670568 (0.346087) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.672348 (0.319585) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.684432 (0.343072) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.684470 (0.344564) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.671364 (0.346822) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.673561 (0.359001) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.676326 (0.334962) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.663598 (0.334876) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.658750 (0.351579) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.689583 (0.335819) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.673712 (0.326493) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.664167 (0.362727) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.671477 (0.330807) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.677386 (0.323871) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.699015 (0.350968) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.690682 (0.346176) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.680720 (0.327820) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.692159 (0.351547) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.675606 (0.352215) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.680341 (0.334843) with: {'batch_size': 128, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+Best Estimator
+KerasClassifier(
+        model=<function create_model at 0x7fec2924f670>
+        build_fn=None
+        warm_start=False
+        random_state=None
+        optimizer=rmsprop
+        loss=None
+        metrics=None
+        batch_size=128
+        validation_batch_size=None
+        verbose=1
+        callbacks=None
+        validation_split=0.0
+        shuffle=True
+        run_eagerly=False
+        epochs=15
+        model__dropout_rate=0.3
+        model__init_mode=he_uniform
+        model__init_recurrent=orthogonal
+        model__init_units=17
+        class_weight=None
+)
+Best Param
+{'batch_size': 128, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+Best Score
+0.7006439393939393

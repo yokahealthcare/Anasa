@@ -1,0 +1,9 @@
+NVIDIA RTX 3060
+GPU = 1:32 minute
+
+i9 - 10th Generation
+CPU =  9:10 minute
+
+
+CONCLUSION
+NVIDIA RTX 3060 is [6x TIMES] faster than Intel Core i9 10th Generation

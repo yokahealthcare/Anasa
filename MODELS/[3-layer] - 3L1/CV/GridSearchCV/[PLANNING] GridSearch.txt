@@ -1,0 +1,108 @@
+GridSearch ---------------- 10-Kfold 
+
+NEURON - 60
+
+
+---------------------------------------------------- STANDARD PARAMETERS ---------------------------------------------------------------------------
+1. Epoch (15, 20)
+[REASON] general rule of thumb that is often recommended in the deep learning community based on practical experience with different datasets and models.
+
+
+2. Opimizer (Adam)
+[SOURCE] "Adam: A Method for Stochastic Optimization" by Diederik Kingma and Jimmy Ba (2015)
+
+[QUOTE] "Adam is a method for stochastic optimization that combines adaptive learning rate and momentum to effectively optimize large-scale deep neural networks with high-dimensional parameter spaces. The algorithm uses estimates of first and second moments of the gradients to adaptively adjust the learning rate for each parameter, allowing faster convergence and better generalization. Adam also integrates momentum, which reduces the influence of noisy gradient estimates and improves the convergence rate. We show that Adam outperforms other optimization algorithms on a range of deep learning tasks, including language modeling with RNNs."
+
+
+3. batch_size (32, 64)
+[SOURCE] Kingma, D. P., & Ba, J. (2015). Adam: A Method for Stochastic Optimization. Proceedings of the International Conference on Learning Representations (ICLR). Retrieved from https://arxiv.org/abs/1412.6980
+
+[QUOTE] According to the original paper on Adam optimizer by Kingma and Ba (2015), "batch sizes in the hundreds or thousands are often used in practice" (page 4). However, they also noted that smaller batch sizes can lead to better generalization performance, especially for tasks with high-dimensional input spaces. They suggest trying batch sizes in the range of 32 to 512 for training deep neural networks.
+
+
+
+4. drop-out rate (0.2, 0.3, 0.4, 0.5)
+[SOURCE]
+Gal, Y., & Ghahramani, Z. (2016). Dropout as a Bayesian approximation: Representing model uncertainty in deep learning. In international conference on machine learning (pp. 1050-1059).
+
+Zaremba, W., Sutskever, I., & Vinyals, O. (2014). Recurrent neural network regularization. arXiv preprint arXiv:1409.2329.
+
+[QUOTE] In general, dropout rates between 0.2 and 0.5 are common for RNN LSTM models
+
+
+
+---------------------------------------------------- HYPER-PARAMETERS ---------------------------------------------------------------------------
+
+1. Network Weight Initialization
+['glorot_uniform', 'he_uniform']
+
+Glorot initialization, also known as Xavier initialization, was introduced in the paper "Understanding the difficulty of training deep feedforward neural networks" by Glorot and Bengio (2010). This method scales the weight initialization based on the number of input and output units of each layer, aiming to keep the variance of the activations and gradients roughly the same across different layers.
+
+He initialization, introduced in the paper "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification" by He et al. (2015), is a modification of Glorot initialization that works better for networks that use rectified linear units (ReLU) as activation functions. This method scales the initialization based only on the number of input units, and is designed to avoid the vanishing gradient problem that can occur with deep networks.
+
+Reference:
+
+Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks. Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics, 9-16.
+
+He, K., Zhang, X., Ren, S., & Sun, J. (2015). Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 1-9.
+
+
+
+2. LSTM Activation Function
+['tanh', 'relu']
+
+
+One common activation function used in LSTM models is the hyperbolic tangent (tanh) function. According to the book "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron, "tanh is usually a good choice for recurrent neural networks, including LSTMs, because it provides a stronger gradient than the logistic sigmoid function, which helps reduce the vanishing gradients problem." (page 477)
+
+However, other activation functions such as ReLU may also be suitable for certain tasks and architectures.
+
+Reference:
+Géron, A. (2019). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems (2nd ed.). O'Reilly Media, Inc.
+
+
+3. Recurrent Initializer
+['glorot_uniform', 'orthogonal']
+
+INFORMATION:
+'zeros': initializes the weights to zero.
+'ones': initializes the weights to one.
+'uniform': initializes the weights with a uniform distribution.
+'glorot_uniform': initializes the weights with the Glorot uniform initializer.
+'orthogonal': initializes the weights with an orthogonal matrix.
+
+
+CHATGPT : Glorot Uniform
+DEFAULT : Orthogonal
+
+--------- <Try this, then find the reference for GREATEST RESULT>
+
+
+---------------------------------------------------- LSTM STRUCTURE ---------------------------------------------------------------------------
+
+LSTM
+tf.keras.layers.LSTM(
+    units,
+    activation="tanh",
+    recurrent_activation="sigmoid",
+    use_bias=True,
+    kernel_initializer="glorot_uniform",
+    recurrent_initializer="orthogonal",
+    bias_initializer="zeros",
+    unit_forget_bias=True,
+    kernel_regularizer=None,
+    recurrent_regularizer=None,
+    bias_regularizer=None,
+    activity_regularizer=None,
+    kernel_constraint=None,
+    recurrent_constraint=None,
+    bias_constraint=None,
+    dropout=0.0,
+    recurrent_dropout=0.0,
+    return_sequences=False,
+    return_state=False,
+    go_backwards=False,
+    stateful=False,
+    time_major=False,
+    unroll=False,
+    **kwargs
+)

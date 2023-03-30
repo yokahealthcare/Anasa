@@ -1,0 +1,9 @@
+UPDATE 4 March 2023:
+1. Learning How LSTM Works
+2. [Try using simple ANN, not LSTM] 
+	- using StandardScaler = 76.80% accuracy
+	- using MinMaxScaler = 76.77% accuracy
+
+PROBLEM
+1. I think there is UPDATE on Keras LSTM Algorithm input_shape, because it threw an error (I try to implemented code from older tutorial online course video)
+2. Still figure out how to implement LSTM to multiple classfication problem

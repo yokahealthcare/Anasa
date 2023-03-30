@@ -1,0 +1,11 @@
+UPDATE 12 March 2023:
+1. Running Well (best result is 98.11% accuracy and 6.29% loss)
+2. Not yet try Cross Validation
+3. Running in all optimizer for RNN (LSTM)
+	- Adam
+	- RMSProp
+	- SGD (stochastic gradient decent)
+	- Adadelta
+	- Adagrad
+
+
