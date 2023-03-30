@@ -191,7 +191,7 @@
         <h5>HOLD-OUT Cross Validation</h5>
         <p>The hold-out method involves randomly splitting the dataset into two parts, typically in a 70/30 or 80/20 split, with the larger portion allocated to the training set and the smaller portion allocated to the validation set.</p>
         <pre>
-          LAYER       : 2-LAYERS  
+          LAYER       : <b class="text-danger">2-LAYERS</b>
           RATIO       : 80% training 20% testing
           SCALE       : StandardScaler
           SEED        : 21
@@ -254,7 +254,7 @@
         <br><br>
 
         <pre>
-          LAYER       : 3-LAYERS  
+          LAYER       : <b class="text-danger">3-LAYERS</b>  
           RATIO       : 80% training 20% testing
           SCALE       : StandardScaler
           SEED        : 21
@@ -314,13 +314,15 @@
           </tbody>
         </table>
 
+        <br>
+        <p><b class="text-info">From the tests of the two types of layers with the same variables, better results are obtained on the neural network which has 3 layers with the acquisition of a validation accuracy value of 98.11%</b></p>
         <br><br><br>
-        <p></p>
+        
+        <p>In this case we also try to do <b>DATA AUGMENTATION</b> by increasing the data up or down by 0.01 and added to the original data. Here we will use the "Adam" optimizer and use 3 layers, because this parameter produces the best results. This is the result obtained,</p>
 
-        <br><br><br>
-        <p>In this case we also try to do <b>DATA AUGMENTATION</b> by increasing the data up or down by 0.01. Here we will use the "Adam" optimizer and use 3 layers, because this parameter produces the best results. This is the result obtained,</p>
-
-        <b>UP</b>
+        <b>UP</b><br>
+        Only increasing the value by 0.01<br>
+        SIZE OF DATASET : 26400 (ori) x 2 = 52.800 rows
         <br><br>
 
         <table class="table table-bordered">
@@ -353,7 +355,9 @@
         </table>
 
         <br><br>
-        <b>UP & DOWN</b>
+        <b>UP & DOWN</b><br>
+        Only increasing the value by 0.01 and decreasing the value by 0.01<br>
+        SIZE OF DATASET : 26400 (ori) x 3 = 79.200 rows
         <br><br>
 
         <table class="table table-bordered">
@@ -392,7 +396,7 @@
           </tbody>
         </table>
 
-        <p>The results of the validation accuracy are almost the same as before. However, training can be faster than before, the number of epochs can be reduced and training is completed more quickly.</p>
+        <p><b class="text-info">The results of the validation accuracy are almost the same as before. However, training can be faster than before, the number of epochs can be reduced and training is completed more quickly.</b></p>
 
         <br><br><br>
 
@@ -477,7 +481,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="bg-success">
               <td>6</td>
               <td>7.57</td>
               <td>97.73</td>
@@ -560,9 +564,80 @@
           STD Validation val. Accuracy            : 0.33%  
         </pre>
 
-        <p>From the results above it can be concluded that 10-FOLD is better than 5-FOLD, the results given have lower validation loss and higher validation accuracy.</p>
+        <p><b class="text-info">From the results above it can be concluded that 10-FOLD is better than 5-FOLD, the results given have lower validation loss and higher validation accuracy.</b></p>
 
         <p>According to Andrej Karpathy, the data has the possibility of overfitting, that is, if the training loss is greater than the validation loss, and if it is underfitting, that is, if the training loss and validation loss are about equal. <b>From the results above, neither of these conditions was found and it can be concluded that the above training process does not have overfitting and underfitting.</b></p>
+
+        Source : <a href="https://github.com/karpathy/char-rnn#tips-and-tricks">Andrej Karpathy Github</a>
+
+        <br><br>
+
+        <p><b class="text-danger">Because 10-fold has better results than the others, we will use 10-fold for the next process and so on.</b></p>
+
+        <br><br>
+        <h5>GridSearch Cross Validation</h5>
+        <p>GridSearchCV is a hyperparameter tuning technique used in machine learning to systematically search and evaluate the optimal combination of hyperparameters for a given model. It involves defining a grid of hyperparameter values to be tested, training the model with each combination of hyperparameters, and evaluating their performance using a cross-validation technique. The best hyperparameters are then chosen based on the performance metric.
+        <br><br>
+
+        <b>GridSearchCV is a powerful and efficient way to find the best hyperparameters for a given model, and it can greatly improve the accuracy and generalization of the model.</b></p>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE</h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>128, 256</td>
+              <td>128</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>orthogonal</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>17</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+
+        <p><b>From the Grid Search process above, we use a larger batch_size than the previous test, because we are training using the GPU which requires a large batch_size in one process.</b></p>
 
       </div>
 
