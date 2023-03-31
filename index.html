@@ -12,29 +12,69 @@
   </head>
   <body>
     <div class="container mt-5">
-    	<h5>SAMPOERNA UNIVERSITY</h5>
-    	<h1>BREATHING WAVE</h1>
+    	<h5>SAMPOERNA UNIVERSITY - Research & Development</h5>
+    	<h1>Anasa - BREATHING WAVE PREDICTION</h1>
     	<br><br>
+      <img src="brand.png" class="img-fluid">
+      <br><br>
 
     	<h3>1. DATASET</h3>
     	<br>
     	<div class="ml-4">
     		<h5>1.1 How much the Data?</h5>
-    		<p>The dataset that will be used in this study contains 26400 data and with 86 points in the breathing wave. This data has been cleaned and filtered and is ready to be used for prediction data.</p>
+    		<p>The dataset that will be used in this study contains 26400 rows of data and with 86 columns/features in the breathing wave. This data has been cleaned and filtered and is ready to be used for prediction data.</p>
 
     		<br>
 
     		<h5>1.2 Training and Testing Ratio</h5>
-    		<p>In predicting the data that will be used will be divided into <b>80% training and 20% testing</b> for Hold-out and Stratified K-fold (5 fold) Cross Validation using function <code>train_test_split()</code> from <code>sklearn.model_selection</code> library, but we will use <b>90% training and 10% testing</b> in GridSearch Cross Validation, because in our method uses a 10-fold Stratified K-fold.</p>
+    		<p>In predicting the data that will be used will be divided into <b>80% training and 20% testing</b> for Hold-out and Stratified K-fold (5-fold) Cross Validation using function <code>train_test_split()</code> from <code>sklearn.model_selection</code> library, but we will use <b>90% training and 10% testing</b> in GridSearch Cross Validation, because in our method uses Stratified K-fold (10-fold).</p>
         
         <br>
         
-        <b>NOTE :</b> the seed of this data <code>train_test_split()</code> and all code is set to <mark>21</mark>. This for reproducibility purposes.
+        <b>NOTE :</b> <span class="text-danger"><b>the seed of all process in program is set to <mark>21</mark>. This for reproducibility purposes.</b></span>
     		
-        <br>
+        <br><br><br>
 
     		<h5>1.3 Standardization Method</h5>
     		<p>The data we get will be separated into 2, namely, data used for processing (X) and data labels (Y).</p>
+
+        <br><br>
+        <b>Processing Data (X)</b>
+        <br><br>
+        <pre>
+        0.483309  0.459790  0.431024  0.376565  0.295734  0.193290  0.066060  -0.083445 -0.247221 -0.409374 ... 0.332737  0.391514  0.452677  0.521407  0.595845  0.661691  0.702932  0.708613  0.682564  0.637765
+        -2.044518 -1.935588 -1.808629 -1.667919 -1.513497 -1.348760 -1.171044 -0.972509 -0.759554 -0.547793 ... 0.325687  0.138731  -0.053860 -0.241691 -0.417603 -0.582320 -0.738485 -0.889731 -1.037066 -1.174654
+        -1.213535 -1.269056 -1.323306 -1.375251 -1.430062 -1.485479 -1.529200 -1.557172 -1.574662 -1.575457 ... 0.902226  0.947940  0.996154  1.035743  1.049543  1.024204  0.954716  0.844505  0.702445  0.541555
+        -0.914806 -0.887726 -0.856065 -0.823527 -0.794551 -0.768074 -0.740895 -0.713364 -0.685445 -0.652020 ... -0.407344 -0.478218 -0.571465 -0.684115 -0.817078 -0.966231 -1.122537 -1.264759 -1.376908 -1.461059
+        -1.547469 -1.458818 -1.362120 -1.264829 -1.164948 -1.060064 -0.954496 -0.849448 -0.742812 -0.636614 ... 0.322969  0.227050  0.130983  0.041438  -0.038034 -0.106152 -0.163048 -0.210926 -0.253102 -0.290270
+        ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...
+        -0.152463 -0.164723 -0.165409 -0.152623 -0.118115 -0.066218 -0.010253 0.041637  0.092217  0.140510  ... -0.345803 -0.336787 -0.306774 -0.280607 -0.269843 -0.260062 -0.229981 -0.167654 -0.082300 0.004372
+        -0.164723 -0.165409 -0.152623 -0.118115 -0.066218 -0.010253 0.041637  0.092217  0.140510  0.188025  ... -0.336787 -0.306774 -0.280607 -0.269843 -0.260062 -0.229981 -0.167654 -0.082300 0.004372  0.089958
+        -0.165409 -0.152623 -0.118115 -0.066218 -0.010253 0.041637  0.092217  0.140510  0.188025  0.240939  ... -0.306774 -0.280607 -0.269843 -0.260062 -0.229981 -0.167654 -0.082300 0.004372  0.089958  0.179209
+        -0.152623 -0.118115 -0.066218 -0.010253 0.041637  0.092217  0.140510  0.188025  0.240939  0.294399  ... -0.280607 -0.269843 -0.260062 -0.229981 -0.167654 -0.082300 0.004372  0.089958  0.179209  0.264014
+        -0.118115 -0.066218 -0.010253 0.041637  0.092217  0.140510  0.188025  0.240939  0.294399  0.340346  ... -0.269843 -0.260062 -0.229981 -0.167654 -0.082300 0.004372  0.089958  0.179209  0.264014  0.343418
+        26400 rows × 85 columns
+
+      </pre>
+      <br><br>
+      <b>Label Data (Y)</b>
+      <br><br>
+      <pre>
+        0         deep
+        1         deep
+        2         deep
+        3         deep
+        4         deep
+                 ...  
+        26395    quick
+        26396    quick
+        26397    quick
+        26398    quick
+        26399    quick
+        Name: labels, Length: 26400, dtype: object
+      </pre>
+
+      <br><br>
 
     		<div class="ml-4">
     			<h5>1.3.1 StandarScaler()</h5>
@@ -50,8 +90,27 @@
 
     			<br>
     			<h5>1.3.2 LabelEncoder() and Hot Encoding</h5>
-    			<p>Label data (Y) will be processed into binary data that can be understood by Deep Learning. This process will use two steps, first we will process it into a categorical number with
-  				<code>LabelEncoder()</code> function, then we will convert the categorical number into binary form by using the <code>to_categorical()</code> function from the <code>keras.utils</code> library.</p>
+    			<p>Label data (Y) will be processed into binary data that can be understood by Deep Learning. This process will use two steps, first we will process it into category numbers with the <code>LabelEncoder()</code> function, which will convert string labels into a series of numbers, for example like this</p>
+
+          <br>
+          <pre>
+            array([0, 0, 0, ..., 4, 4, 4])
+          </pre>
+          <br>
+
+          <p>then we will convert the category numbers into binary form by using the <code>to_categorical()</code> function from the keras.utils library.</p>
+
+          <br>
+          <pre>
+            array([[1., 0., 0., 0., 0.],
+                   [1., 0., 0., 0., 0.],
+                   [1., 0., 0., 0., 0.],
+                   ...,
+                   [0., 0., 0., 0., 1.],
+                   [0., 0., 0., 0., 1.],
+                   [0., 0., 0., 0., 1.]], dtype=float32)
+            </pre>
+          <br>
     		</div>
 
     		<br>
