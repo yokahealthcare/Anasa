@@ -103,8 +103,7 @@ param_grid = {
     'model__init_units': [17, 30, 60]
 }
 
-grid = GridSearchCV(estimator=model, param_grid=param_grid, cv=10, verbose=5, refit=True, n_jobs=cpu_count-1)
-
+grid = GridSearchCV(estimator=model, param_grid=param_grid, cv=10, verbose=5, refit=True, n_jobs=12)
 
 
 with tf.device('/device:CPU:0'):
