@@ -1,0 +1,132 @@
+HYPERPARAMETERS
+    'epochs': [15, 20],
+    'batch_size': [32, 64],
+    'model__dropout_rate': [0.2, 0.3],
+    'model__init_mode': ['glorot_uniform', 'he_uniform'],
+    'model__init_recurrent': ['glorot_uniform', 'orthogonal'],
+    'model__init_units': [17, 30, 60]
+
+Best: 0.713371 using {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.679545 (0.358419) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.673864 (0.335554) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.688409 (0.322508) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.699773 (0.344554) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.688674 (0.337862) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.681288 (0.324598) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.700606 (0.350192) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.691742 (0.342265) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.690417 (0.317419) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.688826 (0.344776) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.684848 (0.320303) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.663144 (0.330975) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.674659 (0.351084) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.685530 (0.338178) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.689508 (0.305825) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.704621 (0.342927) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.685455 (0.334672) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.687955 (0.323278) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.688902 (0.336118) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.683523 (0.337707) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.687424 (0.307218) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.697159 (0.336428) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.683598 (0.339658) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.691439 (0.313552) with: {'batch_size': 32, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.690076 (0.347902) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.680644 (0.335246) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.690000 (0.303382) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.688144 (0.342577) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.676932 (0.327774) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.684508 (0.310609) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.693371 (0.339365) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.686667 (0.337495) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.693788 (0.306330) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.713371 (0.336613) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.682803 (0.333879) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.673258 (0.318625) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.656553 (0.356585) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.682955 (0.333914) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.682348 (0.312685) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.666174 (0.352812) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.690227 (0.332548) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.680720 (0.309850) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.702614 (0.349133) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.670606 (0.335112) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.685265 (0.311091) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.689811 (0.348121) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.689318 (0.321720) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.683788 (0.327925) with: {'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.674167 (0.339740) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.671212 (0.339008) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.679735 (0.325738) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.671250 (0.350876) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.682803 (0.334199) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.697841 (0.313687) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.712765 (0.346382) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.685303 (0.340581) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.681477 (0.321664) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.681970 (0.349134) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.697803 (0.344801) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.683144 (0.340208) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.667689 (0.355814) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.687538 (0.343049) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.676364 (0.331649) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.694886 (0.344036) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.685038 (0.344785) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.671477 (0.330811) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.689242 (0.342341) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.700947 (0.344727) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.679545 (0.325459) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.700795 (0.351773) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.681553 (0.338726) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.667689 (0.338581) with: {'batch_size': 64, 'epochs': 15, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.707917 (0.341377) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.678523 (0.329258) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.687500 (0.311676) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.687803 (0.351156) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.690303 (0.337259) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.670076 (0.326442) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.691818 (0.343061) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.685720 (0.337458) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.696742 (0.316587) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.699280 (0.339315) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.698788 (0.339325) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.683826 (0.319262) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.682992 (0.358303) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.679015 (0.341527) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.674091 (0.313874) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.664015 (0.351893) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.682538 (0.340538) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.686856 (0.312671) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'glorot_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+0.697083 (0.348845) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 17}
+0.688977 (0.339154) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 30}
+0.687841 (0.316409) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'glorot_uniform', 'model__init_units': 60}
+0.692727 (0.346168) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+0.698333 (0.339579) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 30}
+0.697235 (0.322902) with: {'batch_size': 64, 'epochs': 20, 'model__dropout_rate': 0.3, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 60}
+Best Estimator
+KerasClassifier(
+        model=<function create_model at 0x000001CF77441CA0>
+        build_fn=None
+        warm_start=False
+        random_state=None
+        optimizer=rmsprop
+        loss=None
+        metrics=None
+        batch_size=32
+        validation_batch_size=None
+        verbose=1
+        callbacks=None
+        validation_split=0.0
+        shuffle=True
+        run_eagerly=False
+        epochs=20
+        model__dropout_rate=0.2
+        model__init_mode=he_uniform
+        model__init_recurrent=orthogonal
+        model__init_units=17
+        class_weight=None
+)
+Best Param
+{'batch_size': 32, 'epochs': 20, 'model__dropout_rate': 0.2, 'model__init_mode': 'he_uniform', 'model__init_recurrent': 'orthogonal', 'model__init_units': 17}
+Best Score
+0.7133712121212121
