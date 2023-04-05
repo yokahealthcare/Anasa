@@ -187,7 +187,7 @@
         <p>RNN is a powerful tool for <b>processing sequential data that can remember past inputs and use them to make predictions about future outputs.</b> What sets RNN apart from other neural networks is its ability to take into account previous inputs by using a loop that allows information to persist across different time steps. This loop creates a feedback mechanism that enables the network to maintain an internal memory of the past inputs, allowing it to learn and recognize patterns in sequential data.</p>
 
         <br>
-        <img class="img-fluid" src="https://res.cloudinary.com/dyd911kmh/image/upload/v1647442110/image2_ysmali.png">
+        <img class="img-fluid" src="RNN On Paper.png">
         <br><br><br>
 
         <p>This is the traditional RNN Process, and this is not used often because of the <b>VANISHING & EXPLODING GRADIENT PROBLEM</b>, which say if the NUMBER of UNROLL is so many it will creating extreme multiplication for the gradient value, and it will resulting vanished / exploded the model. </p>
@@ -227,15 +227,26 @@
         <h5>2.4 What is LSTM (Long Short-Term Memory) in RNN?</h5>
         <p>LSTM stands for Long Short-Term Memory, which is a type of recurrent neural network (RNN) architecture that is particularly effective at processing sequences of data.</p>
         <br>
-        <img class="img-fluid" src="LSTM.png">
+        <img class="img-fluid" src="RNN LSTM.png">
         <br>
-        <p>LSTM networks use a memory cell to keep track of information over time, allowing them to selectively "forget" or "remember" information based on the context of the input sequence. This is accomplished through the use of specialized gates that control the flow of information into and out of the memory cell.<br><br>
+        <p>LSTM networks use a memory cell to keep track of information over time, allowing them to selectively "forget" or "remember" information based on the context of the input sequence. This is accomplished through the use of specialized gates that control the flow of information into and out of the memory cell.</p>
 
-        The ability of LSTM networks to handle long-term dependencies and avoid the vanishing gradient problem associated with traditional RNNs has made them particularly useful in applications such as natural language processing, speech recognition, and time-series prediction.</p>
+
+        <br>
+          <ul>
+            <li>C(t-1)</li>
+            <li>H(t-1)</li>
+            <li>Xt</li>
+            <li>Ht</li>
+            <li>Ct</li>
+          </ul>
+        <br>
+
+        <p>The ability of LSTM networks to handle long-term dependencies and avoid the vanishing gradient problem associated with traditional RNNs has made them particularly useful in applications such as natural language processing, speech recognition, and time-series prediction.</p>
 
       </div>
 
-      <br><br><br><br>
+      <br><br>
 
       <h3>3. RESULT OF PREDICTION</h3>
       <p>Below are the results of all the training and testing of the various methods used.</p>
@@ -826,10 +837,6 @@
 
     	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
-
-
-
-
 
 
 
