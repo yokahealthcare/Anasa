@@ -60,18 +60,12 @@
       <b>Label Data (Y)</b>
       <br><br>
       <pre>
-        0         deep
-        1         deep
-        2         deep
-        3         deep
-        4         deep
-                 ...  
-        26395    quick
-        26396    quick
-        26397    quick
-        26398    quick
-        26399    quick
-        Name: labels, Length: 26400, dtype: object
+        normal        19734
+        quick          2667
+        hold           2133
+        deep           1066
+        deep_quick      800
+        Name: labels, dtype: int64
       </pre>
 
       <br><br>
@@ -641,7 +635,7 @@
         <b>GridSearchCV is a powerful and efficient way to find the best hyperparameters for a given model, and it can greatly improve the accuracy and generalization of the model.</b></p>
 
         <br><br>
-        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE</h5>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">GRAPHICAL PROCESSING UNIT (GPU)</span></h5>
         <br><br>
 
         <table class="table table-bordered">
@@ -696,7 +690,137 @@
 
         <br>
 
-        <p><b>From the Grid Search process above, we use a larger batch_size than the previous test, because we are training using the GPU which requires a large batch_size in one process.</b></p>
+        <p><b>From the Grid Search process above, we use a larger batch_size (128 & 256) than the previous test, because we are training using the GPU which requires a large batch_size in one process for faster training.</b></p>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.711 (71.1% prediction is correct)
+        <br>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)</span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>orthogonal</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>17</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+
+        <p><b>From the Grid Search process above, we use a smaller batch_size (32 & 64) than the previous test, because we are training using the CPU which requires a smaller batch_size in one process for faster training.</b></p>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.713 (71.3% prediction is correct)
+        <br>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)<br>DATA AUGMENTED</span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>orthogonal</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>60</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+
+        <p><b>The previous results were not satisfactory nor with the GPU or CPU, seeing that it will try to do data augmentation which is useful to increase the amount of data from the original as was done above, the data will be augmented up and down by 0.01.</b></p>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.997 (99.7% prediction is correct)
+        <br><br><br>
+
+        <p>From the several tests above, the augmentation results with CPU usage get a satisfying average accuracy of 99.7% using a dataset of 26400 x 3 = 79,200</p>
 
       </div>
 
