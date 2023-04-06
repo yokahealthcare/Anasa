@@ -188,10 +188,74 @@
 
         <br>
         <img class="img-fluid" src="RNN On Paper.png">
-        <br><br><br>
+        <br>
+        <ul>
+          <li>
+            <b>Ht</b>
+            <br>
+            Is a predictive output valve. Where this valve is a predicted value that is trained from previous data.
+          </li>
+          <li>
+            <b>Xt</b>
+            <br>
+            It is a valve input model. Where this valve is the value that will be trained in a model.
+          </li>
+          <li>
+            <b>A</b>
+            <br>
+            Is an activation function that is used when training with RNN
+          </li>
+        </ul>
+
+        <p>So in RNN deep learning, the predicted results from the first data are not immediately issued, but the predicted results are combined with the second data and so on until a predetermined time. For example, if you want to predict the stock price of company A on the 21st day, it means that the data will be used from day 1 to day 20, after that the RNN will compute from the past few days and predict the day for the next day (day 21st)</p>
+
+        <br><br>
 
         <p>This is the traditional RNN Process, and this is not used often because of the <b>VANISHING & EXPLODING GRADIENT PROBLEM</b>, which say if the NUMBER of UNROLL is so many it will creating extreme multiplication for the gradient value, and it will resulting vanished / exploded the model. </p>
 
+        <br>
+
+        <h5>2.3 What is Vanishing & Exploding Gradient Problem?</h5>
+        <div class="row">
+          <div class="col-6">
+            <img src="Exploding Gradient Problem.png" class="img-fluid">
+          </div>
+          <div class="col-6">
+            <br>
+            <h5>Exploding Gradient Problem</h5>
+            <p>Conditions where the results of gradient descent are very large, and want to cause the input data to be multiplied very large, the greater the input used.</p>
+            <br>
+            <b>For example:</b><br>
+            <code>input x (2 x 2 x 2 x 2) ==> input x 16</code>
+            <p>The result above will multiply the first input by 16 times before it gets to the final copy of the network</p>
+            <br>
+            <b>Or you can use the formula,</b><br>
+            <code>input x W<sub>2</sub><sup>Num. Unroll</sup></code>
+            <br>
+            <p>If we use as much as 50 input data, and that is very small data for stock market data. Then the results will be multiplied by <code>2<sup>50</sup></code> it is a very big value. to be precise <code>1125899906842624</code></p>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-6">
+            <br>
+            <h5>Vanishing Gradient Problem</h5>
+            <p>Conditions where the results of gradient descent are very small, and want to cause the input data to be multiplied very small, the greater the input used.</p>
+            <br>
+            <b>For example:</b><br>
+            <code>input x (0.5 x 0.5 x 0.5 x 0.5) ==> input x 0.0625</code>
+            <p>The result above will multiply the first input by 0.0625 times before it gets to the final copy of the network</p>
+            <br>
+            <b>Or you can use the formula,</b><br>
+            <code>input x W<sub>0.5</sub><sup>Num. Unroll</sup></code>
+            <br>
+            <p>If we use as much as 50 input data, and that is very small data for stock market data. Then the results will be multiplied by <code>0.5<sup>50</sup></code> it is a very big value. to be precise <code>8.88178 x 10<span>-16</span></code></p>
+          </div>
+          <div class="col-6">
+            <img src="Vanishing Gradient Problem.png" class="img-fluid">
+          </div>
+        </div>
+        <br><br>
         <b>SOLUTION</b>
         <ul>
           <li><b>Exploding Gradient</b></li>
