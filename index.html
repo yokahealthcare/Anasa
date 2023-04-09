@@ -15,7 +15,21 @@
     	<h5>SAMPOERNA UNIVERSITY - Research & Development</h5>
     	<h1>Anasa - BREATHING WAVE PREDICTION</h1>
     	<br><br>
-      <img src="brand.png" class="img-fluid">
+      <div class="row">
+        <div class="col-8"> 
+          <p>
+            Anasa is a follow-up research project from the research <b>"Non-Contact Monitoring and Classification of Breathing Pattern for the Supervision of People Infected by COVID-19"</b> which can be found at <a href="https://www.mdpi.com/1424-8220/21/9/3172">here</a><br><br>
+
+            Anasa uses Deep Learning artificial intelligence technology under the name RNN LSTM. By using this technology, Anasa can predict data with very high accuracy of up to ~90%.
+          </p>
+          <br>
+          <h6>Project start : 17 February 2023</h6>
+          <h6>Project ends: ...</h6>
+        </div>
+        <div class="col-4">
+          <img src="brand.png" class="img-fluid">
+        </div>
+      </div>
       <br><br>
 
     	<h3>1. DATASET</h3>
@@ -188,6 +202,7 @@
 
         <br>
         <img class="img-fluid" src="RNN On Paper.png">
+        <div class="text-center"><label>figure 1. illustration of an RNN process that rolls back but is flat mapped</label></div>
         <br>
         <ul>
           <li>
@@ -219,6 +234,7 @@
         <div class="row">
           <div class="col-6">
             <img src="Exploding Gradient Problem.png" class="img-fluid">
+          figure 2. illustration of the RNN process which will have exploding gradient problems
           </div>
           <div class="col-6">
             <br>
@@ -253,6 +269,7 @@
           </div>
           <div class="col-6">
             <img src="Vanishing Gradient Problem.png" class="img-fluid">
+            figure 3. illustration of the RNN process which will have vanishing gradient problems
           </div>
         </div>
         <br><br>
@@ -285,24 +302,71 @@
             </ol>
         </ul>
 
-
+        <br>
+        <p class="text-danger"><b>We will use LSTM as a solution method to avoid the exploding/vanishing gradient problem.</b></p>
         <br>
 
         <h5>2.4 What is LSTM (Long Short-Term Memory) in RNN?</h5>
         <p>LSTM stands for Long Short-Term Memory, which is a type of recurrent neural network (RNN) architecture that is particularly effective at processing sequences of data.</p>
         <br>
         <img class="img-fluid" src="RNN LSTM.png">
+        <div class="text-center"><label>figure 4. illustration of the LSTM circuit in the RNN process</label></div>
         <br>
         <p>LSTM networks use a memory cell to keep track of information over time, allowing them to selectively "forget" or "remember" information based on the context of the input sequence. This is accomplished through the use of specialized gates that control the flow of information into and out of the memory cell.</p>
 
 
         <br>
           <ul>
-            <li>C(t-1)</li>
-            <li>H(t-1)</li>
-            <li>Xt</li>
-            <li>Ht</li>
-            <li>Ct</li>
+            <li>
+              <b>Sigmoid Function (σ)</b><br>
+              <p>The sigmoid function converts all input to a number between 0 and 1</p>
+            </li>
+            <li>
+              <b>tanh Function</b><br>
+              <p>The tanh function converts all input to a number between -1 and 1</p>
+            </li>
+            <li>
+              <b>C(t-1)</b><br>
+              <p>Long-Term Memory value from the previous process, if this is the first process, then the value starts from 0</p>
+            </li>
+            <li>
+              <b>H(t-1)</b><br>
+              <p>Short-Term Memory value from the previous process, if this is the first process, then the value starts from 0</p>
+            </li>
+            <li>
+              <b>Xt</b><br>
+              <p>The value that is input into the LSTM process</p>
+            </li>
+            <li>
+              <b>Ht</b><br>
+              <p>The calculation results of the Short-Term Memory that has been calculated. <b class="text-danger">This is what we will consider the predicted result.</b></p>
+              <ul>
+                <li>
+                  <b>Upper Side</b><br>
+                  <p>Current prediction results</p>
+                </li>
+                <li>
+                  <b>Right Side</b><br>
+                  <p>The prediction results are forwarded to the next LSTM</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <b>Ct</b><br>
+              <p>Value Long-Term Memory that has been calculated, and forwarded to the next LSTM.</p>
+            </li>
+            <li>
+              <b>Forgot Valve</b><br>
+              <p>This determines what percentage of the Long-Term Memory will remember.</p>
+            </li>
+            <li>
+              <b>Adding Valve</b><br>
+              <p>Used to update the value of Long-Term Memory</p>
+            </li>
+            <li>
+              <b>Output Valve</b><br>
+              <p>Used to update the value of Short-Term Memory</p>
+            </li>
           </ul>
         <br>
 
@@ -316,7 +380,7 @@
       <p>Below are the results of all the training and testing of the various methods used.</p>
       <br>
       <div class="ml-4">
-        <h5>HOLD-OUT Cross Validation</h5>
+        <h5>3.1a HOLD-OUT Cross Validation</h5>
         <p>The hold-out method involves randomly splitting the dataset into two parts, typically in a 70/30 or 80/20 split, with the larger portion allocated to the training set and the smaller portion allocated to the validation set.</p>
         <pre>
           LAYER       : <b class="text-danger">2-LAYERS</b>
@@ -444,8 +508,9 @@
 
         <br>
         <p><b class="text-info">From the tests of the two types of layers with the same variables, better results are obtained on the neural network which has 3 layers with the acquisition of a validation accuracy value of 98.11%</b></p>
-        <br><br><br>
-        
+        <br><br>
+
+        <h5>3.1b HOLD-OUT Cross Validation <span class="text-primary">(with DATA AUGMENTATION)</span></h5>
         <p>In this case we also try to do <b>DATA AUGMENTATION</b> by increasing the data up or down by 0.01 and added to the original data. Here we will use the "Adam" optimizer and use 3 layers, because this parameter produces the best results. This is the result obtained,</p>
 
         <b>UP</b><br>
@@ -528,7 +593,7 @@
 
         <br><br><br>
 
-        <h5>Stratified K-FOLD Cross Validation</h5>
+        <h5>3.2 Stratified K-FOLD Cross Validation</h5>
         <p>In stratified k-fold cross-validation, the dataset is divided into k subsets, with each subset having approximately the same proportion of target classes as the original dataset. <br><br> <b>By using stratified k-fold cross-validation, we can get a more accurate estimate of the model's performance, as it ensures that the model is evaluated on a diverse set of examples, rather than being biased towards one class.</b></p>
         
         <br><br>
@@ -703,7 +768,7 @@
         <p><b class="text-danger">Because 10-fold has better results than the others, we will use 10-fold for the next process and so on.</b></p>
 
         <br><br>
-        <h5>GridSearch Cross Validation</h5>
+        <h5>3.3 GridSearch Cross Validation</h5>
         <p>GridSearchCV is a hyperparameter tuning technique used in machine learning to systematically search and evaluate the optimal combination of hyperparameters for a given model. It involves defining a grid of hyperparameter values to be tested, training the model with each combination of hyperparameters, and evaluating their performance using a cross-validation technique. The best hyperparameters are then chosen based on the performance metric.
         <br><br>
 
