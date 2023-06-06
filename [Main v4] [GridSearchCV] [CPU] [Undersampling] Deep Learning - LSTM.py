@@ -40,7 +40,7 @@ Y.value_counts()
 
 # ## Fix Random Seed for Reproducibility
 
-# In[6]:
+# In[5]:
 
 
 # fix random seed for reproducibility
@@ -53,7 +53,7 @@ tf.random.set_seed(seed)
 
 # ## Importing Imbalanced Libraries
 
-# In[7]:
+# In[6]:
 
 
 import imblearn
@@ -65,7 +65,7 @@ print(imblearn.__version__)
 # >
 # > **Conclusion** : Nothing is removed. Indicate that the data is good and there is no ambiguity
 
-# In[10]:
+# In[7]:
 
 
 def tomek_links(X, Y):
@@ -75,13 +75,13 @@ def tomek_links(X, Y):
     return undersample.fit_resample(X, Y)
 
 
-# In[11]:
+# In[8]:
 
 
 X, Y = tomek_links(X, Y)
 
 
-# In[14]:
+# In[9]:
 
 
 Y.value_counts()
@@ -89,7 +89,7 @@ Y.value_counts()
 
 # ## Undersampling
 
-# In[15]:
+# In[10]:
 
 
 # NearMiss
@@ -117,7 +117,7 @@ def rus(X, Y, strategy=labels):
 ## CNN (CondensedNearestNeighbour) error
 
 
-# In[16]:
+# In[11]:
 
 
 X, Y = near_miss(X, Y, version=1)
@@ -126,7 +126,7 @@ Y.value_counts()
 
 # ## Hot Encoded The Label Data 
 
-# In[ ]:
+# In[12]:
 
 
 from sklearn.preprocessing import LabelEncoder
@@ -141,7 +141,7 @@ encoded_Y = encoder.transform(Y)
 hot_y = np_utils.to_categorical(encoded_Y)
 
 
-# In[ ]:
+# In[18]:
 
 
 hot_y
@@ -149,7 +149,7 @@ hot_y
 
 # ## Scale The Training Data (STD)
 
-# In[ ]:
+# In[14]:
 
 
 from sklearn.preprocessing import StandardScaler
@@ -160,7 +160,7 @@ X = sc.fit_transform(X)
 # ## Reshaping The Training Data to 3-Dimensional Numpy Array
 # ### STRUCTURE : (batch_size, timestep, feature)
 
-# In[ ]:
+# In[15]:
 
 
 feature = 5
@@ -254,7 +254,7 @@ param_grid = {
     'model__init_units': [17, 30, 60]
 }
 
-grid = GridSearchCV(estimator=model, param_grid=param_grid, cv=10, verbose=5, refit=True, n_jobs=12)
+grid = GridSearchCV(estimator=model, param_grid=param_grid, cv=10, verbose=5, refit=True, n_jobs=cpu_count-2)
 
 
 # ## Training
@@ -292,136 +292,4 @@ print("Best Param")
 print(grid_result.best_params_)
 print("Best Score")
 print(grid_result.best_score_)
-
-
-# ## Save the Result to CSV
-
-# In[ ]:
-
-
-res = pd.DataFrame(GS.cv_results_)
-res.to_csv("GridSearch_results.csv")
-
-
-# ## Save the BEST Model
-
-# In[ ]:
-
-
-import os
-import pickle
-filename = "{}\\{}\\{}.pickle".format(os.getcwd(), "MODELS\\[3-layer] - 3L1\\CV\\GridSearchCV", "best_model")
-best_model = grid_result.best_estimator_
-
-# save the model to pickle file
-with open(filename, 'wb') as o:
-    pickle.dump(best_model, o)
-    # close the file
-    o.close()
-
-
-# ## Evaluate Model
-
-# In[ ]:
-
-
-from sklearn.model_selection import train_test_split
-X_train, X_test, Y_train, Y_test = train_test_split(X, hot_y, test_size=.2, random_state=21)
-
-
-# In[ ]:
-
-
-# load the model to pickle file
-filename = "{}\\{}\\{}.pickle".format(os.getcwd(), "MODELS\\[3-layer] - 3L1\\CV\\GridSearchCV", "best_model")
-with open(filename, 'rb') as o:
-    # dump information to that file
-    data = pickle.load(o)
-
-    # close the file
-    file.close()
-
-
-# In[ ]:
-
-
-# evaluate the model
-score = classifier.evaluate(X_test, Y_test)
-print("Accuracy \t: {:.2f}".format(score[1]*100))
-print("Loss \t\t: {:.2f}".format(score[0]*100))
-
-
-# In[ ]:
-
-
-pred = classifier.predict(X_test)
-
-
-# In[ ]:
-
-
-y_true = np.argmax(Y_test, axis=1)
-y_pred = np.argmax(pred, axis=1)
-
-
-# ## Plot Confusion Matrix
-
-# In[ ]:
-
-
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-
-# Define the confusion matrix
-conf_matrix = confusion_matrix(y_true, y_pred)
-
-# Plot the confusion matrix
-plt.imshow(conf_matrix, cmap=plt.cm.Greens)
-
-# Add labels to the plot
-tick_marks = np.arange(len(conf_matrix))
-plt.xlabel('Predicted label')
-plt.ylabel('True label')
-
-# Add values to the plot
-for i in range(len(conf_matrix)):
-    for j in range(len(conf_matrix)):
-        plt.text(j, i, conf_matrix[i, j], ha='center', va='center')
-
-# Show the plot
-plt.show()
-
-
-# ## Saving the model into a file
-
-# In[ ]:
-
-
-import os
-
-# saving the model
-filename = "{}\\{}\\{}.h5".format(os.getcwd(), "MODELS\\[3-layer] - 3L1", _optimizer)
-classifier.save(filename)
-
-
-# # PART 4 : Testing the Loaded Model
-
-# In[ ]:
-
-
-from tensorflow.keras.models import load_model
-filename = "{}\\{}\\{}.h5".format(os.getcwd(), "MODELS\\[3-layer] - 3L1", _optimizer)
-
-# load model
-loaded_model = load_model(filename)
-
-
-# ## evaluate the model
-
-# In[ ]:
-
-
-score = loaded_model.evaluate(X_test, Y_test)
-print("Accuracy \t: {:.2f}".format(score[1]*100))
-print("Loss \t\t: {:.2f}".format(score[0]*100))
 
