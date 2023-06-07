@@ -120,7 +120,7 @@ def rus(X, Y, strategy=labels):
 # In[11]:
 
 
-X, Y = near_miss(X, Y, version=1)
+X, Y = rus(X, Y)
 Y.value_counts()
 
 
