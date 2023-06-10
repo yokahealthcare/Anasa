@@ -960,7 +960,255 @@
         <b class="text-danger">BEST SCORE :</b> 0.997 (99.7% prediction is correct)
         <br><br><br>
 
-        <p>From the several tests above, the augmentation results with CPU usage get a satisfying average accuracy of 99.7% using a dataset of 26400 x 3 = 79,200</p>
+        <p>From the several tests above, the augmentation results with CPU usage get a satisfying average accuracy of 99.7% using a dataset of 26400 x 3 = 79,200 rows</p>
+
+        <br><br>
+
+        <p><b class="text-info">Saw very satisfactory results from the previous results, but at that time we were still using the original dataset and there was still an inequality in the amount of data between classes. So from then on we will use the undersampling method to reduce data that is too redundant and equate all data in 800 rows (ie the lowest data that belongs to one of the classes in the dataset)</b></p>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)<br>UNDERSAMPLING (method: MISS-NEAR ver. 1) <small>(800 rows each classes)</small></span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>orthogonal</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>60</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.763 (76.3% prediction is correct)
+        <br><br><br>
+
+        <p>From the test above, the average accuracy of 76.3% using a dataset of 4,000 rows (800 rows each classes) and use of undersampling method MISS-NEAR version 1</p>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)<br>UNDERSAMPLING (method: MISS-NEAR ver. 2) <small>(800 rows each classes)</small></span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>glorot_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>30</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.663 (66.3% prediction is correct)
+        <br><br><br>
+
+        <p>From the test above, the average accuracy of 66.3% using a dataset of 4,000 rows (800 rows each classes) and use of undersampling method MISS-NEAR version 2</p>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)<br>UNDERSAMPLING (method: RANDOM UDNERSAMPLING) <small>(800 rows each classes)</small></span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>glorot_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>60</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.808 (80.8% prediction is correct)
+        <br><br><br>
+
+        <p>From the test above, the average accuracy of 80.8% using a dataset of 4,000 rows (800 rows each classes) and use of undersampling method RANDOM UNDERSAMPLING</p>
+
+        <br><br>
+
+        <p><b class="text-danger">Because RANDOM UNDERSAMPLING method has better results than the MISS-NEAR method, we will use RANDOM UNDERSAMPLING for the next process and so on.</b></p>
+
+        <br><br>
+        <h5 class="text-center">HYPERPARAMETER SEARCH SPACE FOR THE ALGORITHM<br>THE FINAL VALUE IS GENERATED FROM GRID SEARCH WITH 10-FOLD CV PROCEDURE<br>WITH <span class="text-primary">CENTRAL PROCESSING UNIT (CPU)<br>UNDERSAMPLING (method: RANDOM UDNERSAMPLING) <small>(800 rows each classes)</small><br>DATA AUGMENTED</span></h5>
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>MODEL</th>
+              <th>HYPERPARAMETER</th>
+              <th>VALUES</th>
+              <th class="bg-success">FINAL VALUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RNN (LSTM)</td>
+              <td>epoch</td>
+              <td>15, 20</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>batch_size</td>
+              <td>32, 64</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>dropout_rate</td>
+              <td>0.2, 0.3</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_mode</td>
+              <td>'glorot_uniform', 'he_uniform'</td>
+              <td>he_uniform</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>init_recurrent</td>
+              <td>'glorot_uniform', 'orthogonal'</td>
+              <td>orthogonal</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>units</td>
+              <td>17, 30, 60</td>
+              <td>60</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br>
+        <b class="text-danger">BEST SCORE :</b> 0.976 (97.6% prediction is correct)
+        <br><br><br>
+
+        <p>From the test above, the average accuracy of 97.6% using a dataset of 4,000 rows (800 rows each classes) x 3 = 12,000 (AUGMENTED UP & DOWN) and use of undersampling method RANDOM UNDERSAMPLING</p>
 
       </div>
 
